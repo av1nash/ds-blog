@@ -5,7 +5,7 @@ title: Parallel between SQL & Pandas
 toc: true 
 badges: true
 comments: true
-categories: [pandas]
+categories: [pandas,sql]
 image: images/chart-preview.png
 nb_path: _notebooks/2022-02-26-pandas-basics.ipynb
 layout: notebook
@@ -28,7 +28,6 @@ layout: notebook
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
 </pre></div>
 
     </div>
@@ -57,7 +56,14 @@ layout: notebook
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Select-all-columns">Select all columns<a class="anchor-link" href="#Select-all-columns"> </a></h2><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">TOP</span> <span class="mi">5</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">movies</span>
+<h2 id="SELECT">SELECT<a class="anchor-link" href="#SELECT"> </a></h2><p>In SQL, SELECT is the operation which allows you to explore and manipulate data.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Select-all-columns">Select all columns<a class="anchor-link" href="#Select-all-columns"> </a></h3><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">TOP</span> <span class="mi">5</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">movies</span>
 </pre></div>
 
 </div>
@@ -306,6 +312,1198 @@ layout: notebook
       <th>4</th>
       <td>Slam</td>
       <td>3.4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="WHERE">WHERE<a class="anchor-link" href="#WHERE"> </a></h2><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">movies</span> <span class="k">WHERE</span> <span class="p">[</span><span class="n">IMDB</span> <span class="n">Rating</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">5</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;IMDB Rating&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Title</th>
+      <th>US Gross</th>
+      <th>Worldwide Gross</th>
+      <th>US DVD Sales</th>
+      <th>Production Budget</th>
+      <th>Release Date</th>
+      <th>MPAA Rating</th>
+      <th>Running Time min</th>
+      <th>Distributor</th>
+      <th>Source</th>
+      <th>Major Genre</th>
+      <th>Creative Type</th>
+      <th>Director</th>
+      <th>Rotten Tomatoes Rating</th>
+      <th>IMDB Rating</th>
+      <th>IMDB Votes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>The Land Girls</td>
+      <td>146083.0</td>
+      <td>146083.0</td>
+      <td>NaN</td>
+      <td>8000000.0</td>
+      <td>Jun 12 1998</td>
+      <td>R</td>
+      <td>NaN</td>
+      <td>Gramercy</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NaN</td>
+      <td>6.1</td>
+      <td>1071.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>First Love, Last Rites</td>
+      <td>10876.0</td>
+      <td>10876.0</td>
+      <td>NaN</td>
+      <td>300000.0</td>
+      <td>Aug 07 1998</td>
+      <td>R</td>
+      <td>NaN</td>
+      <td>Strand</td>
+      <td>None</td>
+      <td>Drama</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NaN</td>
+      <td>6.9</td>
+      <td>207.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>I Married a Strange Person</td>
+      <td>203134.0</td>
+      <td>203134.0</td>
+      <td>NaN</td>
+      <td>250000.0</td>
+      <td>Aug 28 1998</td>
+      <td>None</td>
+      <td>NaN</td>
+      <td>Lionsgate</td>
+      <td>None</td>
+      <td>Comedy</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NaN</td>
+      <td>6.8</td>
+      <td>865.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Following</td>
+      <td>44705.0</td>
+      <td>44705.0</td>
+      <td>NaN</td>
+      <td>6000.0</td>
+      <td>Apr 04 1999</td>
+      <td>R</td>
+      <td>NaN</td>
+      <td>Zeitgeist</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>Christopher Nolan</td>
+      <td>NaN</td>
+      <td>7.7</td>
+      <td>15133.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Pirates</td>
+      <td>1641825.0</td>
+      <td>6341825.0</td>
+      <td>NaN</td>
+      <td>40000000.0</td>
+      <td>Jul 01 1986</td>
+      <td>R</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>Roman Polanski</td>
+      <td>25.0</td>
+      <td>5.8</td>
+      <td>3275.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="WHERE---Logical-operator-AND">WHERE - Logical operator AND<a class="anchor-link" href="#WHERE---Logical-operator-AND"> </a></h3><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">movies</span> <span class="k">WHERE</span> <span class="p">[</span><span class="n">IMDB</span> <span class="n">Rating</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="k">AND</span> <span class="p">[</span><span class="n">MPAA</span> <span class="n">Rating</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;PG&#39;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;IMDB Rating&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;MPAA Rating&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;PG&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Title</th>
+      <th>US Gross</th>
+      <th>Worldwide Gross</th>
+      <th>US DVD Sales</th>
+      <th>Production Budget</th>
+      <th>Release Date</th>
+      <th>MPAA Rating</th>
+      <th>Running Time min</th>
+      <th>Distributor</th>
+      <th>Source</th>
+      <th>Major Genre</th>
+      <th>Creative Type</th>
+      <th>Director</th>
+      <th>Rotten Tomatoes Rating</th>
+      <th>IMDB Rating</th>
+      <th>IMDB Votes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>21</th>
+      <td>1776</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>4000000.0</td>
+      <td>Nov 09 1972</td>
+      <td>PG</td>
+      <td>NaN</td>
+      <td>Sony/Columbia</td>
+      <td>Based on Play</td>
+      <td>Drama</td>
+      <td>Historical Fiction</td>
+      <td>None</td>
+      <td>57.0</td>
+      <td>7.0</td>
+      <td>4099.0</td>
+    </tr>
+    <tr>
+      <th>59</th>
+      <td>The Adventures of Huck Finn</td>
+      <td>24103594.0</td>
+      <td>24103594.0</td>
+      <td>NaN</td>
+      <td>6500000.0</td>
+      <td>Apr 02 1993</td>
+      <td>PG</td>
+      <td>NaN</td>
+      <td>Walt Disney Pictures</td>
+      <td>Based on Book/Short Story</td>
+      <td>Adventure</td>
+      <td>Historical Fiction</td>
+      <td>Stephen Sommers</td>
+      <td>62.0</td>
+      <td>5.8</td>
+      <td>3095.0</td>
+    </tr>
+    <tr>
+      <th>67</th>
+      <td>Around the World in 80 Days</td>
+      <td>42000000.0</td>
+      <td>42000000.0</td>
+      <td>NaN</td>
+      <td>6000000.0</td>
+      <td>Oct 17 1956</td>
+      <td>PG</td>
+      <td>NaN</td>
+      <td>United Artists</td>
+      <td>Based on Book/Short Story</td>
+      <td>Adventure</td>
+      <td>None</td>
+      <td>None</td>
+      <td>73.0</td>
+      <td>5.6</td>
+      <td>21516.0</td>
+    </tr>
+    <tr>
+      <th>108</th>
+      <td>The Blue Butterfly</td>
+      <td>1610194.0</td>
+      <td>1610194.0</td>
+      <td>NaN</td>
+      <td>10400000.0</td>
+      <td>Feb 20 2004</td>
+      <td>PG</td>
+      <td>NaN</td>
+      <td>Alliance</td>
+      <td>Original Screenplay</td>
+      <td>Drama</td>
+      <td>Contemporary Fiction</td>
+      <td>None</td>
+      <td>44.0</td>
+      <td>6.2</td>
+      <td>817.0</td>
+    </tr>
+    <tr>
+      <th>140</th>
+      <td>The Basket</td>
+      <td>609042.0</td>
+      <td>609042.0</td>
+      <td>NaN</td>
+      <td>1300000.0</td>
+      <td>May 05 2000</td>
+      <td>PG</td>
+      <td>NaN</td>
+      <td>MGM</td>
+      <td>Original Screenplay</td>
+      <td>Drama</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NaN</td>
+      <td>6.3</td>
+      <td>343.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="WHERE---Logical-operator-OR">WHERE - Logical operator OR<a class="anchor-link" href="#WHERE---Logical-operator-OR"> </a></h3><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">movies</span> <span class="k">WHERE</span> <span class="p">[</span><span class="n">MPAA</span> <span class="n">Rating</span><span class="p">]</span> <span class="o">=</span> <span class="ss">&quot;PG&quot;</span> <span class="k">OR</span> <span class="p">[</span><span class="n">MPAA</span> <span class="n">Rating</span><span class="p">]</span> <span class="o">=</span> <span class="ss">&quot;PG-13&quot;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;MPAA Rating&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;PG&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;MPAA Rating&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;PG-13&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Title</th>
+      <th>US Gross</th>
+      <th>Worldwide Gross</th>
+      <th>US DVD Sales</th>
+      <th>Production Budget</th>
+      <th>Release Date</th>
+      <th>MPAA Rating</th>
+      <th>Running Time min</th>
+      <th>Distributor</th>
+      <th>Source</th>
+      <th>Major Genre</th>
+      <th>Creative Type</th>
+      <th>Director</th>
+      <th>Rotten Tomatoes Rating</th>
+      <th>IMDB Rating</th>
+      <th>IMDB Votes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>21</th>
+      <td>1776</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>4000000.0</td>
+      <td>Nov 09 1972</td>
+      <td>PG</td>
+      <td>NaN</td>
+      <td>Sony/Columbia</td>
+      <td>Based on Play</td>
+      <td>Drama</td>
+      <td>Historical Fiction</td>
+      <td>None</td>
+      <td>57.0</td>
+      <td>7.0</td>
+      <td>4099.0</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>3 Ninjas Kick Back</td>
+      <td>11744960.0</td>
+      <td>11744960.0</td>
+      <td>NaN</td>
+      <td>20000000.0</td>
+      <td>May 06 1994</td>
+      <td>PG</td>
+      <td>NaN</td>
+      <td>Walt Disney Pictures</td>
+      <td>Original Screenplay</td>
+      <td>Action</td>
+      <td>Contemporary Fiction</td>
+      <td>None</td>
+      <td>17.0</td>
+      <td>3.2</td>
+      <td>3107.0</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>The Abyss</td>
+      <td>54243125.0</td>
+      <td>54243125.0</td>
+      <td>NaN</td>
+      <td>70000000.0</td>
+      <td>Aug 09 1989</td>
+      <td>PG-13</td>
+      <td>NaN</td>
+      <td>20th Century Fox</td>
+      <td>Original Screenplay</td>
+      <td>Action</td>
+      <td>Science Fiction</td>
+      <td>James Cameron</td>
+      <td>88.0</td>
+      <td>7.6</td>
+      <td>51018.0</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>Ace Ventura: Pet Detective</td>
+      <td>72217396.0</td>
+      <td>107217396.0</td>
+      <td>NaN</td>
+      <td>12000000.0</td>
+      <td>Feb 04 1994</td>
+      <td>PG-13</td>
+      <td>NaN</td>
+      <td>Warner Bros.</td>
+      <td>Original Screenplay</td>
+      <td>Comedy</td>
+      <td>Contemporary Fiction</td>
+      <td>Tom Shadyac</td>
+      <td>49.0</td>
+      <td>6.6</td>
+      <td>63543.0</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>Ace Ventura: When Nature Calls</td>
+      <td>108360063.0</td>
+      <td>212400000.0</td>
+      <td>NaN</td>
+      <td>30000000.0</td>
+      <td>Nov 10 1995</td>
+      <td>PG-13</td>
+      <td>NaN</td>
+      <td>Warner Bros.</td>
+      <td>Original Screenplay</td>
+      <td>Comedy</td>
+      <td>Contemporary Fiction</td>
+      <td>Steve Oedekerk</td>
+      <td>NaN</td>
+      <td>5.6</td>
+      <td>51275.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="WHERE---Logical-operator-NOT">WHERE - Logical operator NOT<a class="anchor-link" href="#WHERE---Logical-operator-NOT"> </a></h3><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">movies</span> <span class="k">WHERE</span> <span class="p">[</span><span class="n">Rotten</span> <span class="n">Tomatoes</span> <span class="n">Rating</span><span class="p">]</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Rotten Tomatoes Rating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Title</th>
+      <th>US Gross</th>
+      <th>Worldwide Gross</th>
+      <th>US DVD Sales</th>
+      <th>Production Budget</th>
+      <th>Release Date</th>
+      <th>MPAA Rating</th>
+      <th>Running Time min</th>
+      <th>Distributor</th>
+      <th>Source</th>
+      <th>Major Genre</th>
+      <th>Creative Type</th>
+      <th>Director</th>
+      <th>Rotten Tomatoes Rating</th>
+      <th>IMDB Rating</th>
+      <th>IMDB Votes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td>Let's Talk About Sex</td>
+      <td>373615.0</td>
+      <td>373615.0</td>
+      <td>NaN</td>
+      <td>300000.0</td>
+      <td>Sep 11 1998</td>
+      <td>None</td>
+      <td>NaN</td>
+      <td>Fine Line</td>
+      <td>None</td>
+      <td>Comedy</td>
+      <td>None</td>
+      <td>None</td>
+      <td>13.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Slam</td>
+      <td>1009819.0</td>
+      <td>1087521.0</td>
+      <td>NaN</td>
+      <td>1000000.0</td>
+      <td>Oct 09 1998</td>
+      <td>R</td>
+      <td>NaN</td>
+      <td>Trimark</td>
+      <td>Original Screenplay</td>
+      <td>Drama</td>
+      <td>Contemporary Fiction</td>
+      <td>None</td>
+      <td>62.0</td>
+      <td>3.4</td>
+      <td>165.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Pirates</td>
+      <td>1641825.0</td>
+      <td>6341825.0</td>
+      <td>NaN</td>
+      <td>40000000.0</td>
+      <td>Jul 01 1986</td>
+      <td>R</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>Roman Polanski</td>
+      <td>25.0</td>
+      <td>5.8</td>
+      <td>3275.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Duel in the Sun</td>
+      <td>20400000.0</td>
+      <td>20400000.0</td>
+      <td>NaN</td>
+      <td>6000000.0</td>
+      <td>Dec 31 2046</td>
+      <td>None</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>86.0</td>
+      <td>7.0</td>
+      <td>2906.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Tom Jones</td>
+      <td>37600000.0</td>
+      <td>37600000.0</td>
+      <td>NaN</td>
+      <td>1000000.0</td>
+      <td>Oct 07 1963</td>
+      <td>None</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>81.0</td>
+      <td>7.0</td>
+      <td>4035.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="GROUP-BY">GROUP BY<a class="anchor-link" href="#GROUP-BY"> </a></h2><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="p">[</span><span class="n">Major</span> <span class="n">Genre</span><span class="p">],</span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">movies</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="mi">2</span> <span class="k">DESC</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Major Genre&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>&lt;ipython-input-27-77301049b126&gt;:1: FutureWarning: In a future version of pandas all arguments of Series.sort_values will be keyword-only.
+  df.groupby(&#39;Major Genre&#39;).size().sort_values(0,ascending=False)
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Major Genre
+Drama                  789
+Comedy                 675
+Action                 420
+Adventure              274
+Thriller/Suspense      239
+Horror                 219
+Romantic Comedy        137
+Musical                 53
+Documentary             43
+Black Comedy            36
+Western                 36
+Concert/Performance      5
+dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="JOIN">JOIN<a class="anchor-link" href="#JOIN"> </a></h2><p>JOINS are probably one of the most important operation in SQL, it allows you to combine two or more tables and perform operations on resulting dataset</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;Slam&#39;</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="s1">&#39;Pirates&#39;</span><span class="p">,</span><span class="mi">8</span><span class="p">],[</span><span class="s1">&#39;Duel in the Sun&#39;</span><span class="p">,</span><span class="mi">7</span><span class="p">]]</span>
+<span class="n">df_favmovies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;my_fav_movies&#39;</span><span class="p">,</span><span class="s1">&#39;my_rating&#39;</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_favmovies</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>my_fav_movies</th>
+      <th>my_rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Slam</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pirates</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Duel in the Sun</td>
+      <td>7</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="INNER-JOIN">INNER JOIN<a class="anchor-link" href="#INNER-JOIN"> </a></h3><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">m1</span><span class="p">.</span><span class="o">*</span><span class="p">,</span><span class="n">m2</span><span class="p">.</span><span class="o">*</span>
+<span class="k">FROM</span> <span class="n">movies</span> <span class="n">m1</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">my_fav_movies</span> <span class="n">m2</span>
+<span class="k">ON</span> <span class="n">m1</span><span class="p">.</span><span class="n">Title</span> <span class="o">=</span> <span class="n">m2</span><span class="p">.</span><span class="n">my_fav_movies</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">df_favmovies</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;Title&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;my_fav_movies&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Title</th>
+      <th>US Gross</th>
+      <th>Worldwide Gross</th>
+      <th>US DVD Sales</th>
+      <th>Production Budget</th>
+      <th>Release Date</th>
+      <th>MPAA Rating</th>
+      <th>Running Time min</th>
+      <th>Distributor</th>
+      <th>Source</th>
+      <th>Major Genre</th>
+      <th>Creative Type</th>
+      <th>Director</th>
+      <th>Rotten Tomatoes Rating</th>
+      <th>IMDB Rating</th>
+      <th>IMDB Votes</th>
+      <th>my_fav_movies</th>
+      <th>my_rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Slam</td>
+      <td>1009819.0</td>
+      <td>1087521.0</td>
+      <td>NaN</td>
+      <td>1000000.0</td>
+      <td>Oct 09 1998</td>
+      <td>R</td>
+      <td>NaN</td>
+      <td>Trimark</td>
+      <td>Original Screenplay</td>
+      <td>Drama</td>
+      <td>Contemporary Fiction</td>
+      <td>None</td>
+      <td>62.0</td>
+      <td>3.4</td>
+      <td>165.0</td>
+      <td>Slam</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pirates</td>
+      <td>1641825.0</td>
+      <td>6341825.0</td>
+      <td>NaN</td>
+      <td>40000000.0</td>
+      <td>Jul 01 1986</td>
+      <td>R</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>Roman Polanski</td>
+      <td>25.0</td>
+      <td>5.8</td>
+      <td>3275.0</td>
+      <td>Pirates</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Duel in the Sun</td>
+      <td>20400000.0</td>
+      <td>20400000.0</td>
+      <td>NaN</td>
+      <td>6000000.0</td>
+      <td>Dec 31 2046</td>
+      <td>None</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>86.0</td>
+      <td>7.0</td>
+      <td>2906.0</td>
+      <td>Duel in the Sun</td>
+      <td>7</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="LEFT-OUTER-JOIN">LEFT OUTER JOIN<a class="anchor-link" href="#LEFT-OUTER-JOIN"> </a></h3><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">m1</span><span class="p">.</span><span class="o">*</span><span class="p">,</span><span class="n">m2</span><span class="p">.</span><span class="o">*</span>
+<span class="k">FROM</span> <span class="n">movies</span> <span class="n">m1</span>
+<span class="k">LEFT</span> <span class="k">OUTER</span> <span class="k">JOIN</span> <span class="n">my_fav_movies</span> <span class="n">m2</span>
+<span class="k">ON</span> <span class="n">m1</span><span class="p">.</span><span class="n">Title</span> <span class="o">=</span> <span class="n">m2</span><span class="p">.</span><span class="n">my_fav_movies</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">df_favmovies</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;Title&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;my_fav_movies&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Title</th>
+      <th>US Gross</th>
+      <th>Worldwide Gross</th>
+      <th>US DVD Sales</th>
+      <th>Production Budget</th>
+      <th>Release Date</th>
+      <th>MPAA Rating</th>
+      <th>Running Time min</th>
+      <th>Distributor</th>
+      <th>Source</th>
+      <th>Major Genre</th>
+      <th>Creative Type</th>
+      <th>Director</th>
+      <th>Rotten Tomatoes Rating</th>
+      <th>IMDB Rating</th>
+      <th>IMDB Votes</th>
+      <th>my_fav_movies</th>
+      <th>my_rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>The Land Girls</td>
+      <td>146083.0</td>
+      <td>146083.0</td>
+      <td>NaN</td>
+      <td>8000000.0</td>
+      <td>Jun 12 1998</td>
+      <td>R</td>
+      <td>NaN</td>
+      <td>Gramercy</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NaN</td>
+      <td>6.1</td>
+      <td>1071.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>First Love, Last Rites</td>
+      <td>10876.0</td>
+      <td>10876.0</td>
+      <td>NaN</td>
+      <td>300000.0</td>
+      <td>Aug 07 1998</td>
+      <td>R</td>
+      <td>NaN</td>
+      <td>Strand</td>
+      <td>None</td>
+      <td>Drama</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NaN</td>
+      <td>6.9</td>
+      <td>207.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>I Married a Strange Person</td>
+      <td>203134.0</td>
+      <td>203134.0</td>
+      <td>NaN</td>
+      <td>250000.0</td>
+      <td>Aug 28 1998</td>
+      <td>None</td>
+      <td>NaN</td>
+      <td>Lionsgate</td>
+      <td>None</td>
+      <td>Comedy</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NaN</td>
+      <td>6.8</td>
+      <td>865.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Let's Talk About Sex</td>
+      <td>373615.0</td>
+      <td>373615.0</td>
+      <td>NaN</td>
+      <td>300000.0</td>
+      <td>Sep 11 1998</td>
+      <td>None</td>
+      <td>NaN</td>
+      <td>Fine Line</td>
+      <td>None</td>
+      <td>Comedy</td>
+      <td>None</td>
+      <td>None</td>
+      <td>13.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Slam</td>
+      <td>1009819.0</td>
+      <td>1087521.0</td>
+      <td>NaN</td>
+      <td>1000000.0</td>
+      <td>Oct 09 1998</td>
+      <td>R</td>
+      <td>NaN</td>
+      <td>Trimark</td>
+      <td>Original Screenplay</td>
+      <td>Drama</td>
+      <td>Contemporary Fiction</td>
+      <td>None</td>
+      <td>62.0</td>
+      <td>3.4</td>
+      <td>165.0</td>
+      <td>Slam</td>
+      <td>5.0</td>
     </tr>
   </tbody>
 </table>

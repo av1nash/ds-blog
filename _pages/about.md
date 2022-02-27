@@ -4,7 +4,7 @@ title: About Me
 permalink: /about/
 ---
 
-I built data products primarily on Azure platform. 
+I build data products primarily on Azure platform. 
 I have experience in:
 * Orchestrating data pipelines to pull data from myriads of data sources (SAAS platforms, On-prem databases, files)
 * Transforming data using python, sql & dbt
