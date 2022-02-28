@@ -1,6 +1,12 @@
 ---
 keywords: fastai
-title: Title
+description: Exploring basic charts using altair visualization library
+title: Basic visualizations using altair library
+toc: true 
+badges: true
+comments: true
+categories: [altair,visualization]
+image: images/chart-preview.png
 nb_path: _notebooks/2022-02-27-altair-viz-basics.ipynb
 layout: notebook
 ---
@@ -318,8 +324,8 @@ layout: notebook
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="https://altair-viz.github.io/gallery/bar_chart_sorted.html">Example Code</a>
-<a href="https://altair-viz.github.io/user_guide/encoding.html#encoding-data-types">Encoding Data types</a></p>
+<p><a href="https://altair-viz.github.io/gallery/bar_chart_sorted.html">Example Code</a></p>
+<p><a href="https://altair-viz.github.io/user_guide/encoding.html#encoding-data-types">Encoding Data types</a></p>
 
 </div>
 </div>
